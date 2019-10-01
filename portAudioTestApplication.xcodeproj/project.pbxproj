@@ -11,6 +11,9 @@
 		6DBBEFA323433C9C00E922ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBBEFA223433C9C00E922ED /* ViewController.swift */; };
 		6DBBEFA523433C9E00E922ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DBBEFA423433C9E00E922ED /* Assets.xcassets */; };
 		6DBBEFA823433C9E00E922ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DBBEFA623433C9E00E922ED /* Main.storyboard */; };
+		6DBBEFB323433CCB00E922ED /* AudioManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6DBBEFB223433CCB00E922ED /* AudioManager.mm */; };
+		6DBBEFB623433E4700E922ED /* AudioStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DBBEFB423433E4700E922ED /* AudioStream.cpp */; };
+		6DBBEFB923433EB000E922ED /* libportaudio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DBBEFB823433EB000E922ED /* libportaudio.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +24,12 @@
 		6DBBEFA723433C9E00E922ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6DBBEFA923433C9E00E922ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6DBBEFAA23433C9E00E922ED /* portAudioTestApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = portAudioTestApplication.entitlements; sourceTree = "<group>"; };
+		6DBBEFB023433CCA00E922ED /* portAudioTestApplication-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "portAudioTestApplication-Bridging-Header.h"; sourceTree = "<group>"; };
+		6DBBEFB123433CCB00E922ED /* AudioManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioManager.h; sourceTree = "<group>"; };
+		6DBBEFB223433CCB00E922ED /* AudioManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioManager.mm; sourceTree = "<group>"; };
+		6DBBEFB423433E4700E922ED /* AudioStream.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AudioStream.cpp; sourceTree = "<group>"; };
+		6DBBEFB523433E4700E922ED /* AudioStream.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AudioStream.hpp; sourceTree = "<group>"; };
+		6DBBEFB823433EB000E922ED /* libportaudio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libportaudio.a; path = ../../../../../usr/local/lib/libportaudio.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DBBEFB923433EB000E922ED /* libportaudio.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,6 +49,8 @@
 			children = (
 				6DBBEF9F23433C9C00E922ED /* portAudioTestApplication */,
 				6DBBEF9E23433C9C00E922ED /* Products */,
+				6DBBEFB023433CCA00E922ED /* portAudioTestApplication-Bridging-Header.h */,
+				6DBBEFB723433EB000E922ED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,6 +65,10 @@
 		6DBBEF9F23433C9C00E922ED /* portAudioTestApplication */ = {
 			isa = PBXGroup;
 			children = (
+				6DBBEFB123433CCB00E922ED /* AudioManager.h */,
+				6DBBEFB423433E4700E922ED /* AudioStream.cpp */,
+				6DBBEFB523433E4700E922ED /* AudioStream.hpp */,
+				6DBBEFB223433CCB00E922ED /* AudioManager.mm */,
 				6DBBEFA023433C9C00E922ED /* AppDelegate.swift */,
 				6DBBEFA223433C9C00E922ED /* ViewController.swift */,
 				6DBBEFA423433C9E00E922ED /* Assets.xcassets */,
@@ -61,6 +77,14 @@
 				6DBBEFAA23433C9E00E922ED /* portAudioTestApplication.entitlements */,
 			);
 			path = portAudioTestApplication;
+			sourceTree = "<group>";
+		};
+		6DBBEFB723433EB000E922ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6DBBEFB823433EB000E922ED /* libportaudio.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +119,7 @@
 				TargetAttributes = {
 					6DBBEF9C23433C9C00E922ED = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1030;
 					};
 				};
 			};
@@ -133,7 +158,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DBBEFB323433CCB00E922ED /* AudioManager.mm in Sources */,
 				6DBBEFA323433C9C00E922ED /* ViewController.swift in Sources */,
+				6DBBEFB623433E4700E922ED /* AudioStream.cpp in Sources */,
 				6DBBEFA123433C9C00E922ED /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,17 +298,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = portAudioTestApplication/portAudioTestApplication.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 854VVF729E;
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				INFOPLIST_FILE = portAudioTestApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jbloit.portAudioTestApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "portAudioTestApplication-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -290,17 +322,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = portAudioTestApplication/portAudioTestApplication.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 854VVF729E;
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				INFOPLIST_FILE = portAudioTestApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jbloit.portAudioTestApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "portAudioTestApplication-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
