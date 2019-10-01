@@ -18,8 +18,6 @@
 #endif
 
 
-
-
 AudioStream::AudioStream(){
     /* initialise sinusoidal wavetable */
     for( i=0; i<TABLE_SIZE; i++ )
